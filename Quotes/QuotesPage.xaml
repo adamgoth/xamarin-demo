@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ContentPage 
+		xmlns="http://xamarin.com/schemas/2014/forms" 
+		xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+		xmlns:local="clr-namespace:Quotes" 
+		x:Class="Quotes.QuotesPage"
+		>
+	<ContentPage.Padding>
+		<OnPlatform x:TypeArguments="Thickness"
+			iOS="10, 20, 10, 20">
+		</OnPlatform>
+	</ContentPage.Padding>
+	<StackLayout>
+		<Button HorizontalOptions="Center" Text="Next" Clicked="Handle_Clicked" />
+		<Label Text="{Binding
+				Source={x:Reference slider},
+				Path=Value,
+				StringFormat='Font Size: {0:N0}'}" />
+		<Slider 
+			x:Name="slider"
+			Maximum="50"
+			Minimum="16" />
+		<Label
+			x:Name="currentQuote"
+			FontSize="{Binding
+				Source={x:Reference slider},
+				Path=Value}" 
+			Text="Click Next for a New Quote" />
+	</StackLayout>
+</ContentPage>
